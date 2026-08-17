@@ -1,0 +1,6 @@
+streamlit>=1.39.0
+requests>=2.32.0
+pandas>=2.2.0
+pyvis>=0.3.2
+networkx>=3.3
+python-dotenv>=1.0.1
