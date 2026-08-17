@@ -5,8 +5,9 @@ from fastapi import APIRouter, status
 router = APIRouter(tags=["System"])
 
 
-@router.get(
+@router.api_route(
     "/health",
+    methods=["GET", "HEAD"],
     status_code=status.HTTP_200_OK,
     summary="Health check endpoint",
     description="Returns the operational status of the backend API.",

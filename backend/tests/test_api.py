@@ -8,17 +8,23 @@ client = TestClient(app)
 
 
 def test_health_endpoint():
-    """Tests GET /health returns 200 OK and status ok."""
-    response = client.get("/health")
-    assert response.status_code == 200
-    assert response.json() == {"status": "ok"}
+    """Tests GET and HEAD /health returns 200 OK."""
+    response_get = client.get("/health")
+    assert response_get.status_code == 200
+    assert response_get.json() == {"status": "ok"}
+
+    response_head = client.head("/health")
+    assert response_head.status_code == 200
 
 
 def test_v1_health_endpoint():
-    """Tests GET /api/v1/health returns 200 OK and status ok."""
-    response = client.get("/api/v1/health")
-    assert response.status_code == 200
-    assert response.json() == {"status": "ok"}
+    """Tests GET and HEAD /api/v1/health returns 200 OK."""
+    response_get = client.get("/api/v1/health")
+    assert response_get.status_code == 200
+    assert response_get.json() == {"status": "ok"}
+
+    response_head = client.head("/api/v1/health")
+    assert response_head.status_code == 200
 
 
 def test_analyze_hierarchy_acme_technologies_test_case():
