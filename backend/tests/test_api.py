@@ -14,6 +14,13 @@ def test_health_endpoint():
     assert response.json() == {"status": "ok"}
 
 
+def test_v1_health_endpoint():
+    """Tests GET /api/v1/health returns 200 OK and status ok."""
+    response = client.get("/api/v1/health")
+    assert response.status_code == 200
+    assert response.json() == {"status": "ok"}
+
+
 def test_analyze_hierarchy_acme_technologies_test_case():
     """
     Tests the official Section 26 initial dataset with 9 employees at Acme Technologies.
